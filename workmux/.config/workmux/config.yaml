@@ -1,0 +1,17 @@
+nerdfont: true
+agents:
+    oc-auto:
+      type: opencode
+      command: opencode
+      args:
+        - --auto
+    claude-auto:
+      type: claude
+      command: claude
+      args:
+        - --auto
+    clauded:
+      type: claude
+      command: claude
+      args:
+        - --dangerously-skip-permissions
