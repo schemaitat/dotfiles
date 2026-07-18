@@ -16,6 +16,74 @@ dotfiles/
   zsh/.zshrc .zprofile .zshenv
 ```
 
+## Prerequisites
+
+Install the underlying tools before symlinking config. Commands below cover
+macOS (Homebrew) and Ubuntu/WSL (apt).
+
+### zsh
+
+```sh
+# macOS: zsh is preinstalled
+brew install zsh   # only if missing/outdated
+
+# Ubuntu/WSL
+sudo apt update && sudo apt install zsh
+
+# make zsh the default shell (both platforms)
+chsh -s "$(which zsh)"
+```
+
+### oh-my-zsh
+
+```sh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+```
+
+This `.zshrc` also expects these oh-my-zsh plugins to be installed as
+custom plugins:
+
+```sh
+git clone https://github.com/zsh-users/zsh-autosuggestions \
+  "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-autosuggestions"
+git clone https://github.com/zdharma-continuum/fast-syntax-highlighting \
+  "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/fast-syntax-highlighting"
+```
+
+### oh-my-posh
+
+```sh
+# macOS
+brew install jandedobbeleer/oh-my-posh/oh-my-posh
+
+# Ubuntu/WSL
+curl -s https://ohmyposh.dev/install.sh | bash -s
+```
+
+`.zshrc` references the `jandedobbeleer` theme bundled with oh-my-posh
+(`.../themes/jandedobbeleer.omp.json`); no extra theme file needed.
+
+### tmux (+ tpm plugin manager)
+
+```sh
+# macOS
+brew install tmux
+
+# Ubuntu/WSL
+sudo apt update && sudo apt install tmux
+
+# tpm (tmux plugin manager), required by .tmux.conf
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+```
+
+After stowing `.tmux.conf` and starting tmux, press `prefix + I` (capital i)
+to have tpm install the configured plugins (`tmux-sensible`,
+`tmux-resurrect`, `tmux-continuum`).
+
+### workmux
+
+Not yet documented here — installation notes to be added later.
+
 ## Bootstrap on a new machine
 
 Requires [`just`](https://github.com/casey/just) (`brew install just` / `apt install just`).
