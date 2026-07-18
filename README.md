@@ -18,34 +18,39 @@ dotfiles/
 
 ## Bootstrap on a new machine
 
+Requires [`just`](https://github.com/casey/just) (`brew install just` / `apt install just`).
+
 ```sh
-brew install stow
 git clone <remote-url> ~/dotfiles
 cd ~/dotfiles
-stow -v -t ~ tmux workmux nvim zsh
+just install
 ```
 
+`just install` installs `stow` if missing (via `brew` or `apt`) and symlinks
+all packages into `$HOME`.
+
 If a target file already exists (e.g. a stock `.zshrc`), remove/back it up first,
-or run `stow --adopt -t ~ <package>` to pull the existing file into the repo
-instead of overwriting it (then check `git diff` to make sure nothing unwanted
-was adopted).
+or run `just adopt` to pull the existing file into the repo instead of
+overwriting it (then check `git diff` to make sure nothing unwanted was
+adopted).
 
 ## Adding a new package
 
 ```sh
 mkdir -p dotfiles/<name>/path/to/mirror
 mv ~/path/to/config dotfiles/<name>/path/to/mirror/
-cd dotfiles && stow -v -t ~ <name>
 ```
 
-## Un-stow (remove symlinks, keep files in repo)
+Add `<name>` to the `packages` variable in the `justfile`, then run:
 
 ```sh
-cd ~/dotfiles && stow -D -t ~ tmux workmux nvim zsh
+just restow
 ```
 
-## Re-stow after editing package structure
+## Other commands
 
 ```sh
-cd ~/dotfiles && stow -R -t ~ tmux workmux nvim zsh
+just uninstall  # remove symlinks, keep files in repo
+just restow      # re-stow after editing package structure
+just adopt       # pull existing target files into the repo
 ```
