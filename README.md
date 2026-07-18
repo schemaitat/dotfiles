@@ -1,7 +1,7 @@
 # dotfiles
 
-Single source of truth for tmux, workmux, nvim, and zsh config, managed with
-[GNU Stow](https://www.gnu.org/software/stow/).
+Single source of truth for tmux, workmux, nvim, zsh, and opencode config,
+managed with [GNU Stow](https://www.gnu.org/software/stow/).
 
 Each top-level directory is a "package" whose contents mirror `$HOME`.
 Stow symlinks package contents into `$HOME`.
@@ -14,6 +14,7 @@ dotfiles/
   workmux/.config/workmux/config.yaml
   nvim/.config/nvim/...
   zsh/.zshrc .zprofile .zshenv
+  opencode/.config/opencode/...
 ```
 
 ## Prerequisites

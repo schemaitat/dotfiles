@@ -1,4 +1,4 @@
-packages := "tmux workmux nvim zsh"
+packages := "tmux workmux nvim zsh opencode"
 
 # Install stow (if needed) and symlink all packages into $HOME
 install:
