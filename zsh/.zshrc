@@ -38,6 +38,12 @@ alias wm="workmux"
 alias wma="workmux add -a oc-auto -A -p"
 alias wmd="workmux dashboard"
 alias wms="workmux sidebar"
+alias wml="workmux list"
+wmo() {
+  local handle
+  handle=$(workmux list --json | jq -r '.[].handle' | fzf --prompt="worktree> ") || return
+  [[ -n "$handle" ]] && workmux open "$handle"
+}
 
 # --- opencode ---
 
