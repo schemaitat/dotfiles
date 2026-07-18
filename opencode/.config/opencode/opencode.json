@@ -1,4 +1,11 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "model": "github-copilot/claude-sonnet-5"
+  "model": "github-copilot/claude-sonnet-5",
+  "enabled_providers": ["github-copilot"],
+  "experimental": {
+    "policies": [
+      { "effect": "deny", "action": "provider.use", "resource": "*" },
+      { "effect": "allow", "action": "provider.use", "resource": "github-copilot" }
+    ]
+  }
 }
