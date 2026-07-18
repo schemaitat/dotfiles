@@ -50,17 +50,6 @@ alias oca="opencode --auto"
 
 export PATH="/Users/andre/.pixi/bin:$PATH"
 
-# --- Google Cloud SDK ---
-
-if [ -f '/Users/andre/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/andre/google-cloud-sdk/path.zsh.inc'; fi
-if [ -f '/Users/andre/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/andre/google-cloud-sdk/completion.zsh.inc'; fi
-
-# --- bun ---
-
-[ -s "/Users/andre/.bun/_bun" ] && source "/Users/andre/.bun/_bun"
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
-
 # --- Local secrets (untracked) ---
 
 [ -f "$HOME/.zshrc.secrets" ] && source "$HOME/.zshrc.secrets"
