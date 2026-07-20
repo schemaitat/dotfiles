@@ -1,6 +1,9 @@
 # Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
+export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.opencode/bin:/opt/nvim-linux-x86_64/bin:$PATH"
+
 ZSH_THEME=""
 
 HYPHEN_INSENSITIVE="true"
@@ -14,7 +17,7 @@ plugins=(
   sudo
   colored-man-pages
   zsh-autosuggestions
-  fast-syntax-highlighting
+  tmux
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -61,5 +64,4 @@ export PATH="/Users/andre/.pixi/bin:$PATH"
 [ -f "$HOME/.zshrc.secrets" ] && source "$HOME/.zshrc.secrets"
 
 # --- oh-my-posh ---
-
-eval "$(oh-my-posh init zsh --config /usr/local/opt/oh-my-posh/themes/jandedobbeleer.omp.json)"
+eval "$(oh-my-posh init zsh --config catppuccin)"
